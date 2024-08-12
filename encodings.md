@@ -13,7 +13,7 @@ It’s easier to encode data so it is more human readable . Some common encoding
 ## ASCII
 `1 character = 7 bits`
 Every byte corresponds to a text on the computer . 
-Here is a complete list - [click me!!!](https://www.w3schools.com/charsets/ref_html_ascii.asp#:~:text=The ASCII Character Set&text=ASCII is a 7-bit,are all based on ASCII)
+Here is a complete list - [click me!!!](https://www.w3schools.com/charsets/ref_html_ascii.asp#:~:text=The%20ASCII%20Character%20Set&text=ASCII%20is%20a%207%2Dbit,are%20all%20based%20on%20ASCII)
 
 Bytes to ASCII
 ```javascript
@@ -104,7 +104,7 @@ Reference : [click me!!!](https://developer.mozilla.org/en-US/docs/Web/JavaScrip
 `1 character = 6 bits`
 Base64 encoding uses 64 different characters (A-Z, a-z, 0-9, +, /), which means each character can represent one of 64 possible values.
 
-[Encode](https://www.base64encode.org/)
+[Encode](https://www.base64encode.org/) <br />
 [Decode](https://www.base64decode.org/)
 
 ## Base58
