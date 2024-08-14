@@ -12,7 +12,7 @@ Private Key: The private key is a secret cryptographic code that must be kept co
 
 How Elliptic Curve works - [click me!!!](https://www.youtube.com/watch?v=NF1pwjL9-DE&)
 
-## Common eleptic curves
+## Common elliptic curves
 - secp256k1 - BTC and ETH
 - ed25519 - SOL
 
