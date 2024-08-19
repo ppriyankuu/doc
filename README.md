@@ -12,5 +12,6 @@ Whatever I feel like documenting/noting down.
 [How do transactions work on the blockchain](transactions.md) <br />
 [Hierarchical Deterministic(HD) wallet](HD-wallet.md) <br />
 [Mnemonics and Derivation paths](wallet.md) <br />
+[Keccak-256](keccak-256.md) <br />
 
 Author - [@Priyanku Gogoi](https://github.com/ppriyankuu/)
