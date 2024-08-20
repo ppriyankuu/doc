@@ -13,5 +13,7 @@ Whatever I feel like documenting/noting down.
 [Hierarchical Deterministic(HD) wallet](HD-wallet.md) <br />
 [Mnemonics and Derivation paths](wallet.md) <br />
 [Keccak-256](keccak-256.md) <br />
+[RPC, JSON-RPCs](RPC.md) <br />
+[Wei, Lamports](Wei-Lamports.md) <br />
 
 Author - [@Priyanku Gogoi](https://github.com/ppriyankuu/)
