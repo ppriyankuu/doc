@@ -15,5 +15,7 @@ Whatever I feel like documenting/noting down.
 [Keccak-256](keccak-256.md) <br />
 [RPC, JSON-RPCs](RPC.md) <br />
 [Wei, Lamports](Wei-Lamports.md) <br />
+[RPC Server](RPC-server.md) <br />
+[Common RPCs on Solana](common-RPCs-solana.md) <br />
 
 Author - [@Priyanku Gogoi](https://github.com/ppriyankuu/)
