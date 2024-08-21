@@ -17,5 +17,6 @@ Whatever I feel like documenting/noting down.
 [Wei, Lamports](Wei-Lamports.md) <br />
 [RPC Server](RPC-server.md) <br />
 [Common RPCs on Solana](common-RPCs-solana.md) <br />
+[Common RPCs on ETH](common-RPCs-ETH.md) <br />
 
 Author - [@Priyanku Gogoi](https://github.com/ppriyankuu/)
