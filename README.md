@@ -18,5 +18,6 @@ Whatever I feel like documenting/noting down.
 - [RPC Server](RPC-server.md) <br />
 - [Common RPCs on Solana](common-RPCs-solana.md) <br />
 - [Common RPCs on ETH](common-RPCs-ETH.md) <br />
+- [Introduction to Solana](solana-jargon.md) <br />
 
 Author - [@Priyanku Gogoi](https://github.com/ppriyankuu/)
