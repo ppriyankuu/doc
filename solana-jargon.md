@@ -64,8 +64,8 @@ e.g. Counter Contract on `Solidity`:
 - Purpose of Rent - To prevent the blockchain from being clogged with inactive or unnecessary data, Solana charges rent for storing data.
     - Rent Calculation - Rent is based on the storage size and the duration the account remains on the blockchain.
     - Rent Exemption - If an account maintains a balance above a certain threshold, it becomes "rent-exempt," meaning it does not incur further rent charges. The rent paid is refundable when the account is closed.
-    <br />
-    What is Rent on Solana, and how to calculate it. [click me!!!](https://www.quicknode.com/guides/solana-development/getting-started/understanding-rent-on-solana)
+
+    [What is Rent on Solana, and how to calculate it](https://www.quicknode.com/guides/solana-development/getting-started/understanding-rent-on-solana)
 
 ### Efficient Storage Management
 - Incentivizing Minimal Storage - The rent model encourages users to store only the necessary data, reducing blockchain bloat.
