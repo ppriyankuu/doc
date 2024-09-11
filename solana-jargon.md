@@ -70,3 +70,40 @@ e.g. Counter Contract on `Solidity`:
 ### Efficient Storage Management
 - Incentivizing Minimal Storage - The rent model encourages users to store only the necessary data, reducing blockchain bloat.
 - Removing Inactive accounts - Accounts that fail to pay the required rent are eventually removed from the ledger, ensuring use of blockchain resources.
+
+### Calculating Rent-Exempt Threshold
+- Methods to calculate:
+    1. Solana CLI - Command-line interface tools.
+    2. Solana Web3.js Library - JavaScript library for interacting with the Solana Blockchain.
+    3. Anchor's Space Constraint - A framework-specific approach for calculating space requirements for accounts.
+
+### RPC URL, Testnet, Devnet, and Mainnet
+![image01](./images/dev-test-main-net.png)
+
+#### What is an RCP URL?
+- RPC (Remote Procedure Call) URLs allow applications like browsers, wallets, and users to interact with the Solana Blockchain.
+- By sending requests to an RPC URL, you can query the blockchain and perform various operations.
+- How to use RPC URLs:
+    - Mainnet - `https://api.mainnet-beta.solana.com`
+    - Devnet - `https://api.devnet.solana.com`
+    - Testnet - `https://api.testnet.solana.com`
+[Clusters and Public RPC endpoints | Solana](https://solana.com/docs/core/clusters)
+
+### Changing RPC URLs
+Use the following commands to set the appropriate RPC URL for your environments:
+
+```sh
+# Set RPC URL for Mainnet
+$ solana config set --url https://api.mainnet-beta.solana.com
+
+# Set RPC URL for Devnet
+$ solana config set --url https://api.devnet.solana.com
+
+# Set RPC URL for Testnet
+$ solana config set --url https://api.testnet.solana.com
+```
+
+#### Salana Networks
+- Mainnet - The live Solana Blockchain where real transactions occur. It's secure and used for deploying production applications.
+- Testnet - A testing environment that mimics the mainnet but is used for testing applications before deploying them to the mainnet. It does not use real SOL.
+- Devnet - A development environment similar to the testnet but specifically for developers to experiment and test applications. You can freely request SOL from the [Solana Devnet Faucet](https://www.google.com/search?q=Testnet%3A+A+testing+environment+that+mimics+the+mainnet+but+is+used+for+testing+applications+before+deploying+them+to+the+mainnet.+It+does+not+use+real+SOL.Devnet%3A+A+development+environment+similar+to+the+testnet+but+specifically+for+developers+to+experiment+and+test+applications.+You+can+freely+request+SOL+from+the+Solana+Devnet+Faucet+for+testing+purposes.&sourceid=chrome&ie=UTF-8) for testing purposes.
