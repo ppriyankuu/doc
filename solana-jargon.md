@@ -87,6 +87,7 @@ e.g. Counter Contract on `Solidity`:
     - Mainnet - `https://api.mainnet-beta.solana.com`
     - Devnet - `https://api.devnet.solana.com`
     - Testnet - `https://api.testnet.solana.com`
+<br />
 [Clusters and Public RPC endpoints | Solana](https://solana.com/docs/core/clusters)
 
 ### Changing RPC URLs
@@ -107,3 +108,48 @@ $ solana config set --url https://api.testnet.solana.com
 - Mainnet - The live Solana Blockchain where real transactions occur. It's secure and used for deploying production applications.
 - Testnet - A testing environment that mimics the mainnet but is used for testing applications before deploying them to the mainnet. It does not use real SOL.
 - Devnet - A development environment similar to the testnet but specifically for developers to experiment and test applications. You can freely request SOL from the [Solana Devnet Faucet](https://www.google.com/search?q=Testnet%3A+A+testing+environment+that+mimics+the+mainnet+but+is+used+for+testing+applications+before+deploying+them+to+the+mainnet.+It+does+not+use+real+SOL.Devnet%3A+A+development+environment+similar+to+the+testnet+but+specifically+for+developers+to+experiment+and+test+applications.+You+can+freely+request+SOL+from+the+Solana+Devnet+Faucet+for+testing+purposes.&sourceid=chrome&ie=UTF-8) for testing purposes.
+
+#### Using Devnet and Testnet
+- Airdrop SOL - On Devnet, you can use teh faucet to receive free SOL for testing.
+- Local Testing - Use the Solana Test Validator to start a local validator for testing applications without replying on external networks.
+```
+solana-test-validator
+```
+
+#### Solana Explorer
+- Explorer tool - You can view transactions, account balances, and more on the Solana Blockchain using the [Solana Explorer](https://explorer.solana.com/), which supports Devnet, Testnet, Mainnet, and custom RPC URLs.
+
+### Web2 Data Model vs. Solana Data Model
+
+###### Web2 Data Model
+- Applications are typically deployed on cloud providers with backend code and data storage separated.
+- `Databases` - Use SQL or NoSQL databases to store user data.
+- `Data Managements` - Adding or deleting a user involves simply adding or removing a row in the database.
+
+![image02](./images/web2-data-model.avif)
+
+###### Solana Data Model
+- Smart Contracts - In Web3, smart contracts are equivalent to backend applications in Web2. These are deployed on the blockchain.
+- Program Storage - On solana, smart contracts (called `programs`) are stored in executable accounts.
+- Data Storage - Unlike Ethereum, where data and smart contract code are stored together, Solana separates them:
+    - Data accounts - Store data independently from programs.
+    - Executable accounts - Store the smart contract code (programs).
+
+![image03](./images/web3-data-model.avif)
+
+#### Key differences and implications
+- User Account Management:
+    - In Solana, each user requires a separate account, which adds complexity compared to simply adding a row in a Web2 database.
+    - User-Paid Fees - The responsibility for creating and funding these accounts, including paying for data rent, is delegated to the user.
+    - Decentralised Fees - Users pay the fees for their individual accounts, not the program itself. If an account is closed, any remaining rent is refunded to the user.
+
+### Token program on Solana
+![image04](./images/token-program-solana.avif)
+##### Creating token: Ethereum vs. Solana
+- Ehtereum:
+    - To create a token, you must deploy you own smart contract.
+    - Ethereum provides a standard template (ERC-20), but each token requires its own contract to be deployed on the blockchain.
+- Solana:
+    - Solana simplifies this process with a single, pre-deployed Token Program.
+    - Instead of deploying a new contract, you only need to create a token account under this program.
+    - This significantly reduces complexity and deployment costs.
