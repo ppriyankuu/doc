@@ -153,3 +153,24 @@ solana-test-validator
     - Solana simplifies this process with a single, pre-deployed Token Program.
     - Instead of deploying a new contract, you only need to create a token account under this program.
     - This significantly reduces complexity and deployment costs.
+
+#### Understanding Tokens
+- Tokens represent one of the primary use cases of blockchain technology, acting as digital assets or currencies that can be traded on the blockchain.
+    - Examples - USDC and USDT are popular stablecoins that have found significant market adoption. These tokens do not have their own blockchain; instead, they operate as smart contracts on existing blockchains like Ethereum and Solana.
+
+- Why use existing Blockchain?
+    - Tokens like USDC and USDT leverage the security and infrastructure of established blockchains such as Solana and Ethereum. This allows them to function without maintaining their own blockchain or miners.
+
+- The Token Program is essentially a mapping from as account to a number, representing the balance of token help by an account.
+
+Explore various tokens and their market data on [CoinMarketCap](https://coinmarketcap.com/).
+
+#### Solana's Token Program
+- Centralised token program:
+    - Solana engineers recognised the importance of tokens and created a dedicated Token Program.
+    - This program is pre-deployed on the Solana blockchain, simplifying token creation.
+- Mint Accounts:
+    - When creating a token on Solana, you establish a `mint account` under the token program.
+    - A mint account functions like a bank for your token, overseeing its supply but without executing any code. It does not run transactions or logic on its own; instead, it is responsible for managing the minting and overall supply of tokens.
+- Associated token account:
+    - Associated Token Account is a token account whose address is deterministically derived using the owner's address and the mint account's address.
