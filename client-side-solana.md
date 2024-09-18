@@ -43,22 +43,22 @@ To build a React app for requesting a Solana airdrop (example: [click me!!!](htt
 
 
     function App() {
-    const network = WalletAdapterNetwork.Devnet;
+        const network = WalletAdapterNetwork.Devnet;
 
-    const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+        const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 
-    return (
-        <ConnectionProvider endpoint={endpoint}>
-            <WalletProvider wallets={[]} autoConnect>
-                <WalletModalProvider>
-                    <div style={{ display: "flex", justifyContent: "space-between" }}>
-                        <WalletMultiButton />
-                        <WalletDisconnectButton />
-                    </div>
-                </WalletModalProvider>
-            </WalletProvider>
-        </ConnectionProvider>
-    );
+        return (
+            <ConnectionProvider endpoint={endpoint}>
+                <WalletProvider wallets={[]} autoConnect>
+                    <WalletModalProvider>
+                        <div style={{ display: "flex", justifyContent: "space-between" }}>
+                            <WalletMultiButton />
+                            <WalletDisconnectButton />
+                        </div>
+                    </WalletModalProvider>
+                </WalletProvider>
+            </ConnectionProvider>
+        );
     }
 
     export default App;
@@ -73,26 +73,26 @@ To build a React app for requesting a Solana airdrop (example: [click me!!!](htt
     import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 
     export function RequestAirdrop() {
-    const wallet = useWallet();
-    const { connection } = useConnection();
+        const wallet = useWallet();
+        const { connection } = useConnection();
 
-    async function requestAirdrop() {
-        let amount = document.getElementById("amount").value;
-        await connection.requestAirdrop(
-        wallet.publicKey,
-        amount * LAMPORTS_PER_SOL
+        async function requestAirdrop() {
+            let amount = document.getElementById("amount").value;
+            await connection.requestAirdrop(
+            wallet.publicKey,
+            amount * LAMPORTS_PER_SOL
+            );
+            alert("Airdropped " + amount + " SOL to " + wallet.publicKey.toBase58());
+        }
+
+        return (
+            <div>
+                <br />
+                <br />
+                <input id="amount" type="text" placeholder="Amount" />
+                <button onClick={requestAirdrop}>Request Airdrop</button>
+            </div>
         );
-        alert("Airdropped " + amount + " SOL to " + wallet.publicKey.toBase58());
-    }
-
-    return (
-        <div>
-            <br />
-            <br />
-            <input id="amount" type="text" placeholder="Amount" />
-            <button onClick={requestAirdrop}>Request Airdrop</button>
-        </div>
-    );
     }
 ```
 - This component requests an airdrop when the user clicks on the button, assuming their wallet is connected.
@@ -109,22 +109,22 @@ Fetch and display the user's SOL balances from the blockchain.
     import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 
     export function ShowSolBalance() {
-    const { connection } = useConnection();
-    const wallet = useWallet();
+        const { connection } = useConnection();
+        const wallet = useWallet();
 
-    async function getBalance() {
-        if (wallet.publicKey) {
-            const balance = await connection.getBalance(wallet.publicKey);
-            document.getElementById("balance").innerHTML = balance / LAMPORTS_PER_SOL;
+        async function getBalance() {
+            if (wallet.publicKey) {
+                const balance = await connection.getBalance(wallet.publicKey);
+                document.getElementById("balance").innerHTML = balance / LAMPORTS_PER_SOL;
+            }
         }
-    }
 
-    getBalance();
-    return (
-        <div>
-            <p>SOL Balance:</p> <div id="balance"></div>
-        </div>
-    );
+        getBalance();
+        return (
+            <div>
+                <p>SOL Balance:</p> <div id="balance"></div>
+            </div>
+        );
     }
 ```
 
@@ -140,32 +140,32 @@ Send a transaction - Allow users to send transactions, such as transferring toke
     } from "@solana/web3.js";
 
     export function SendTokens() {
-    const wallet = useWallet();
-    const { connection } = useConnection();
+        const wallet = useWallet();
+        const { connection } = useConnection();
 
-    async function sendTokens() {
-        let to = document.getElementById("to").value;
-        let amount = document.getElementById("amount").value;
-        const transaction = new Transaction();
-        transaction.add(
-        SystemProgram.transfer({
-            fromPubkey: wallet.publicKey,
-            toPubkey: new PublicKey(to),
-            lamports: amount * LAMPORTS_PER_SOL,
-        })
+        async function sendTokens() {
+            let to = document.getElementById("to").value;
+            let amount = document.getElementById("amount").value;
+            const transaction = new Transaction();
+            transaction.add(
+                SystemProgram.transfer({
+                    fromPubkey: wallet.publicKey,
+                    toPubkey: new PublicKey(to),
+                    lamports: amount * LAMPORTS_PER_SOL,
+                })
+            );
+
+            await wallet.sendTransaction(transaction, connection);
+            alert("Sent " + amount + " SOL to " + to);
+        }
+
+        return (
+            <div>
+                <input id="to" type="text" placeholder="To" />
+                <input id="amount" type="text" placeholder="Amount" />
+                <button onClick={sendTokens}>Send</button>
+            </div>
         );
-
-        await wallet.sendTransaction(transaction, connection);
-        alert("Sent " + amount + " SOL to " + to);
-    }
-
-    return (
-        <div>
-            <input id="to" type="text" placeholder="To" />
-            <input id="amount" type="text" placeholder="Amount" />
-            <button onClick={sendTokens}>Send</button>
-        </div>
-    );
     }
 ```
 
