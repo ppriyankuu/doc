@@ -10,3 +10,26 @@ On Solana, all the data is stored in what are referred to as `accounts`. The way
 - Accounts require a rent deposit in SOL, proportional to the amount of data stored, which is fully refundable when the account is closed.
 - Every account has a program `owner`. Only the program that owns an account can modify its data or deduct its lamport balance. However, anyone can increase the balance.
 - Native programs are built-in programs included with the Solana runtime.
+
+#### Real-Life Example
+Imagine you have a *gym locker* at a gym. In this analogy:
+- Your locker number (key) is unique, just like each Solana has a unique *address*.
+- Inside your locker, you might store gym clothes (data) or instructions for workout (program code).
+- You pay rent for using the locker, but if you stop using it, you get your deposit back.
+- Only you (the owner) can open the locker and change what's inside, but someone else can still add money to your locker.
+
+
+In simple terms, on solana, all data is stored in what are reffered to as "accounts". The way data is organised on Solana resembles a [key-value store](https://en.wikipedia.org/wiki/Key%E2%80%93value_database), where each entry in the database is called as "account".
+
+#### What is an Account?
+In solana, an account is like a mailbox where you store data. Each account has a unique address, which is like your mailbox's number. This address is 32 bytes long and works like a public key (using the Ed25519 cryptography standard), making it secure.
+
+*Account Info*
+1. *Data (Bytes)*
+- This is the actual information stored in the account, like letters or packages you put in the mailbox. The data is stored as a series of bytes.
+2. *Executable (Boolean)*
+- A simple *yes* or *no* values (true/false) that tells if the account contains executable code, like instructions for doing something (similar to having a manual in your mailbox).
+3. *Lamports (Number)*
+- This represents how many lamports (Solana's smallest unit of currency) the account holds. Think of lamports like money stored in the mailbox.
+4. *Owner (Program Address)*
+- This is the owner of the account, usually a program that controls what happens with the data inside. It's like having the person or entity responsible for that mailbox.

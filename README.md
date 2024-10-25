@@ -20,6 +20,6 @@ Whatever I feel like documenting/noting down.
 - [Common RPCs on ETH](common-RPCs-ETH.md) <br />
 - [Introduction to Solana](solana-jargon.md) <br />
 - [Wallet Adapters](client-side-solana.md) <br />
-- [Ownership and Authorities and PDAs](client-side-solana.md) <br />
+- [Ownership and Authorities and PDAs](ownership-and-authorities-and-PDAs.md) <br />
 
 Author - [@Priyanku Gogoi](https://github.com/ppriyankuu/)
