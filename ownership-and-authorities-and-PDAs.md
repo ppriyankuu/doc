@@ -39,3 +39,152 @@ Solana contains a small handful of native programs that are part of the validato
 
 *Solana's Native Programs*
 On Solana, there are few built-in programs that help the network function. Think of these as essential services that keep everything running smoothly. The two most important ones you'll deal with when creating your own programs are the *System Programs* and the *BPF loader*.
+
+
+**System Program**
+The System Program is responsible for some of the most important tasks, like -
+1. New Account Creation:
+- It's like a **bank manager** that can open new bank accounts for you. Only the System Program has permission to create new accounts for Solana.
+2. Space Allocation:
+- Image when you open a new bacnk account, you also get a safe desposite box. This size of this box (how much space it has) is set by the System Program. This space is where your data will be stored.
+3. Assign Program Ownership:
+- After the System Program creates an account (bank account), it can hand over control of that account to a specific program, which could be a custom program you've created. This is how programs on Solana take control of newly created accounts.
+
+**Wallet on Solana**
+A wallet on Solana is like a bank account created by the System Program. It holds the SOL tokens (the currency) and the total balance is called the **lamport balance**.
+![image02](./images/wallet-on-solana.webp)
+
+##### Using `@solana/web3.js` to interact with the System Program
+
+Create a new account with data and rent.
+```javascript
+const { Keypair, Connection, SystemProgram, Transaction } = require('@solana/web3.js');
+
+const payer = Keypair.fromSecretKey(Uint8Array.from([222,61,190,103,38,70,4,221,24,242,44,86,66,111,102,52,87,41,83,45,166,179,184,79,208,91,20,66,142,36,147,236,30,84,33,77,227,36,159,27,27,53,27,249,230,207,30,83,42,51,3,225,70,41,44,85,54,31,198,80,45,49,208,39]));
+
+const mintAthority = payer;
+
+const connection = new Connection("https://api.devnet.solana.com");
+async function main() {
+    const newAccount = Keypair.generate();
+    const TOTAL_BYTES = 165;
+    const lamports = await connection.getMinimumBalanceForRentExemption(TOTAL_BYTES);
+    const transaction = new Transaction();
+    transaction.add(
+        SystemProgram.createAccount({
+            fromPubkey: payer.publicKey,
+            newAccountPubkey: newAccount.publicKey,
+            lamports: lamports,
+            space: TOTAL_BYTES,
+            programId: SystemProgram.programId,
+        }),
+    );
+
+    await connection.sendTransaction(transaction, [payer, newAccount]);
+    console.log(`New account created at ${newAccount.publicKey.toBase58()}`);
+}
+
+main();
+```
+
+Transfer lamports from your account to another account
+```javascript
+const { createMint } = require('@solana/spl-token');
+const { Keypair, Connection, SystemProgram, Transaction } = require('@solana/web3.js');
+
+const payer = Keypair.fromSecretKey(Uint8Array.from([222,61,190,103,38,70,4,221,24,242,44,86,66,111,102,52,87,41,83,45,166,179,184,79,208,91,20,66,142,36,147,236,30,84,33,77,227,36,159,27,27,53,27,249,230,207,30,83,42,51,3,225,70,41,44,85,54,31,198,80,45,49,208,39]));
+
+const mintAthority = payer;
+
+const connection = new Connection("https://api.devnet.solana.com");
+async function main() {
+    const newAccount = Keypair.generate();
+    const TOTAL_BYTES = 165;
+    const lamports = await connection.getMinimumBalanceForRentExemption(TOTAL_BYTES);
+    const transaction = new Transaction();
+    transaction.add(
+        SystemProgram.transfer({
+            fromPubkey: payer.publicKey,
+            toPubkey: newAccount.publicKey,
+            lamports,
+        }),
+    );
+
+    await connection.sendTransaction(transaction, [payer, newAccount]);
+    console.log(`Transferred to  ${newAccount.publicKey.toBase58()}`);
+}
+
+main();
+```
+
+Change the owner of an account
+```javascript
+const { createMint } = require('@solana/spl-token');
+const { Keypair, Connection, SystemProgram, Transaction } = require('@solana/web3.js');
+
+const payer = Keypair.fromSecretKey(Uint8Array.from([222,61,190,103,38,70,4,221,24,242,44,86,66,111,102,52,87,41,83,45,166,179,184,79,208,91,20,66,142,36,147,236,30,84,33,77,227,36,159,27,27,53,27,249,230,207,30,83,42,51,3,225,70,41,44,85,54,31,198,80,45,49,208,39]));
+
+const connection = new Connection("https://api.devnet.solana.com");
+async function main() {
+    const newAccount = Keypair.generate();
+    const owner = Keypair.generate();
+    const TOTAL_BYTES = 165;
+    const lamports = await connection.getMinimumBalanceForRentExemption(TOTAL_BYTES);
+    const transaction = new Transaction();
+    transaction.add(
+        SystemProgram.createAccount({
+            fromPubkey: payer.publicKey,
+            newAccountPubkey: newAccount.publicKey,
+            lamports: lamports,
+            space: TOTAL_BYTES,
+            programId: owner.publicKey,
+        }),
+    );
+
+    await connection.sendTransaction(transaction, [payer, newAccount]);
+    console.log(`New account created at ${newAccount.publicKey.toBase58()}`);
+}
+
+main();
+```
+
+### BPF Loader Program
+The *BPF Loader Program* is like a software manager for the Solana network. It is responsible for handling all the custom programs (smart contracts) that developers create. Its job is to -
+1. Deploy Programs:
+- Just like a software manager installs new apps on a computer, the BPF Loader installs new program (smart contracts) on the Solana Network.
+2. Upgrade Programs:
+- It a developer needs to make changes or improve an existing program, the BPF Loader is responsible for upgrading it.
+3. Execute Programs:
+- Once the programs are deployed, the BPF Loader runs them, muck like a managers launches apps to perform certain tasks.
+
+In simple terms, the [BPF loader](https://github.com/solana-labs/solana/tree/27eff8408b7223bb3c4ab70523f8a8dca3ca6645/programs/bpf_loader/src) is the program designated as the "owner" of all the other programs on the network, excluding native programs. It is responsible for deploying, upgrading, and executing custom programs.
+
+
+### Authority in Solana Programs
+In Solana, authority refers to a person or account that has the permission to take decisions or perform certain actions in a program. Just like in real life, some actions need approval or permission from the right person.
+
+**Creating and Revoking mint authority**
+- Create a new token
+```bash
+$ spl-token create-token
+```
+
+- Create an ATA (Associated Token Account)
+```bash
+$ spl-token create-account <token_mint_address>
+```
+
+- Try minting some tokens
+```bash
+$ spl-token mint <token_mint_address> 1000000000
+```
+
+- Revoke `mint authority`
+```bash
+$ spl-token authorize <token_id> mint --disable
+```
+
+- Try to mint again (would throw an error)
+```bash
+$ spl-token mint <token_mint_address> 1000000000
+```
