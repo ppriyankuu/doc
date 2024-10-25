@@ -33,3 +33,9 @@ In solana, an account is like a mailbox where you store data. Each account has a
 - This represents how many lamports (Solana's smallest unit of currency) the account holds. Think of lamports like money stored in the mailbox.
 4. *Owner (Program Address)*
 - This is the owner of the account, usually a program that controls what happens with the data inside. It's like having the person or entity responsible for that mailbox.
+
+##### System Program
+Solana contains a small handful of native programs that are part of the validator implementation and provide various core functionalities for the network.
+
+*Solana's Native Programs*
+On Solana, there are few built-in programs that help the network function. Think of these as essential services that keep everything running smoothly. The two most important ones you'll deal with when creating your own programs are the *System Programs* and the *BPF loader*.
