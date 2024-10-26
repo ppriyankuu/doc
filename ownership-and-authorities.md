@@ -188,3 +188,11 @@ $ spl-token authorize <token_id> mint --disable
 ```bash
 $ spl-token mint <token_mint_address> 1000000000
 ```
+
+### Summary
+- Solana accounts are like lockers that store data (up to 100mb) and require rent in SOL to maintain.
+- The System Program is responsible for creating new accounts, allocating space, and assigning program ownership.
+- BPF Loader Program manages custom programs (smart contracts) by deploying, upgrading, and executing them.
+- Authority is Solana refers to the account or person with permission to make decisions or perform actions in a program.
+- Different types of authorities exist, such as token mint authority, token freeze authority, and upgrade authority.
+- Mint authority can be created and revoked for tokens, affecting the ability to mint new tokens.
