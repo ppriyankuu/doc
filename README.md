@@ -21,5 +21,6 @@ Whatever I feel like documenting/noting down.
 - [Introduction to Solana](solana-jargon.md) <br />
 - [Wallet Adapters](client-side-solana.md) <br />
 - [Ownership and Authorities](ownership-and-authorities.md) <br />
+- [Program Derived Address (PDA)](PDAs.md) <br />
 
 Author - [@Priyanku Gogoi](https://github.com/ppriyankuu/)
