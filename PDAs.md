@@ -36,3 +36,20 @@ It's a factory that produces and manages the creation of tokens!
 - The Reserve Bank of India (RBI) is like the Mint Account. It prints new Rupees and controls how much currency is in circulation. The RBI decides when to print new money and sends it out to the banks, just like a Mint Account on Solana creates and sends new tokens to users.
 - The Mint Account controls how many tokens are created. For example, when a new token is introduced (like a new cryptocurrency or game token), the Mint Account issues these tokens to users’ ATAs.
 
+In simple terms:
+- ATA holds your tokens (like a bank acccount holds your Rupees).
+- Mint Account creates the tokens (like the RBI prints new Rupees).
+
+## PDA
+A **Program Derived Address** (PDA) is a type of account on the Solana Blockchain that is associated with and owned by a program rather than a specific user or account.
+
+*Think of it like a unique mailbox that can only be opened by a specific program.* 
+
+### How PDAs work:
+- PDAs are generated deterministically, meaning the same inputs will always create the same address.
+- They are created using -
+1. **User-defined seeds** - These can be anything, like your wallet address, a string, or even a number.
+2. **A bump seed** - This is an extra number added to make sure the derived address isn't already used as a regular wallet address.
+3. **Program ID** - Every smart contract (like the token program) on Solana has its own unique ID. This ID is also part of the formula to genrate a PDA.
+
+The result is a unique PDA that the program controls, not a regular wallet with a public/private key pair. Only the program (in this case, the token program) can sign for transactions or interact with this PDA.
