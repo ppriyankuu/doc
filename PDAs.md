@@ -53,3 +53,15 @@ A **Program Derived Address** (PDA) is a type of account on the Solana Blockchai
 3. **Program ID** - Every smart contract (like the token program) on Solana has its own unique ID. This ID is also part of the formula to genrate a PDA.
 
 The result is a unique PDA that the program controls, not a regular wallet with a public/private key pair. Only the program (in this case, the token program) can sign for transactions or interact with this PDA.
+
+### How Data is stored in Web3
+In **Web2**, data is typically stored in databases like SQL or NoSQL. But in Web3 - especially on blcokchains like Solana, data is stored differently.
+
+So, while Web2 uses databases, Web3 uses accounts on the blockchain to store and manage data, and these accounts interact with smart contracts (like the Token Program) to ensure everything runs smoothly.
+
+**Summary**
+- Mint Account: Creates tokens (like USDC, BONK).
+- ATA: Stores a user’s specific token balance (like a personal bank account).
+- Data in Solana is stored decentrally using accounts, not in traditional databases like SQL or NoSQL.
+
+The Solana blockchain is like a giant library of lockers (accounts) where users store tokens, and programs (apps) interact with these accounts. The Token Program creates and manages tokens through a Mint Account (like a coin factory) and stores them in users' ATA (wallets). PDA (Program Derived Address) simplifies account management by creating predictable addresses without needing private keys, making it easier for programs like Uber to track rides. In Web3, data is stored in blockchain accounts rather than traditional databases, ensuring secure and decentralized management.
