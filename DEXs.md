@@ -25,3 +25,38 @@ So, a Cex is like a supermarket for cryptocurrencies where the company (the exch
 ## DEX vs CEX
 ![image01](./images/DEXvsCEX.webp)
 
+## CEX Jargons
+1. **Orderbooks**
+An orderbook is like a menu board at a restaurant that lists all the buy and sell orders for a cryptocurrency in one place. It shows the prices people are willing to pay to buy (bids) and the prices at which others are willing to sell (asks).
+
+2. **Bids**
+Bids are the offers made by buyers to purchase a cryptocurrency at a specific price. 
+In the CEX, bids are the prices that buyers are willing to pay for a particular cryptocurrency, listed in the orderbook.
+
+3. **Asks**
+Asks (or "offers") are the offers made by sellers who want to sell their cryptocurrency at a specific price.
+In the CEX, asks are the prices that sellers are willing to accept for their cryptocurrency, and they also appear in the orderbook.
+
+4. **Spread**
+The spread is the difference between the highest bid price and the lowest ask price in the orderbook. It essentially shows the gap between what buyers are willing to pay and what sellers are willing to accept.
+
+In CEX trading, a small spread usually means a more active market, while a large spread suggests less activity or fewer traders willing to agree on a price.
+
+5. **Liquidity**
+Liquidity refers to how easily and quickly you can buy or sell a cryptocurrency without affecting its price.
+
+A market with high liquidity means you can quickly buy or sell large amounts of a cryptocurrency without much change in price. A market with low liquidity might make trades slower and lead to bigger price swings.
+
+6. **Market Makers**
+Market makers are traders or entities that add liquidity to the market by placing both buy (bid) and sell (ask) orders on the exchange. They help keep the market active and the spreads tight.
+
+Market makers profit from the spread (the difference between their bid and ask prices) and help keep the market flowing smoothly.
+
+**Summary**
+so, all these terms play a role in understanding how a CEX works. Here's a quick recap -
+- Orderbooks - A list of all buy and sell orders.
+- Bids - Prices buyers are willing to pay.
+- Asks - Prices sellers want to receive.
+- Spread - The price gap between the highest bid and lowest ask.
+- Liquidity - How easily you can trade without changing the price much.
+- Market Makers - Entities that provide liquidity by always being ready to buy or sell.
