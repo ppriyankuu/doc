@@ -60,3 +60,14 @@ so, all these terms play a role in understanding how a CEX works. Here's a quick
 - Spread - The price gap between the highest bid and lowest ask.
 - Liquidity - How easily you can trade without changing the price much.
 - Market Makers - Entities that provide liquidity by always being ready to buy or sell.
+
+### How does a DEX work?
+1. **Peer-to-Peer Trading** - On a DEX, traders interact with each other to buy or sell assets. There is no middleman or central authority holding your funds or managing the trades. Instead, trades happen directly between users' wallets.
+
+2. **Smart Contracts Automate trades** - A DEX uses smart contracts, which are self-executing programs on the blockchain. These contracts automatically execute the terms of a trade (like swapping one cryptocurrency for another) once the conditions are met.
+
+3. **Token Swaps through Liquidity Pools** - Many DEXs use a model called *Automated Market Making* (AMM), which relies on Liquidity Pools. A liquidity pool is a collection of funds locked in a smart contract, and these funds are used to enable trading between cryptocurrency pairs (like swapping ETH or USDT).
+
+4. **No Custody over your funds** - On a DEX, you retain full control over your cryptocurrency throughout the trade. You use a crypto wallet (like Backpack or Phantom) to connect directly to the DEX and approve transactions.
+
+5. **Transparency and Security** - Because trades are executed on the blockchain and controled by smart contracts, everything is transparent and verifiable. You can see the trade history, liquidity pool balances, and smart contract codes. Plus, since there is no central point of failure, it's often more secure from hacks targeting centralised entities. 
