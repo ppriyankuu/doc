@@ -22,5 +22,6 @@ Whatever I feel like documenting/noting down.
 - [Wallet Adapters](client-side-solana.md) <br />
 - [Ownership and Authorities](ownership-and-authorities.md) <br />
 - [Token program, Mint Account, and PDAs](PDAs.md) <br />
+- [Decentralised Exchanges](DEXs.md) <br />
 
 Author - [@Priyanku Gogoi](https://github.com/ppriyankuu/)
