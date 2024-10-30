@@ -71,3 +71,8 @@ so, all these terms play a role in understanding how a CEX works. Here's a quick
 4. **No Custody over your funds** - On a DEX, you retain full control over your cryptocurrency throughout the trade. You use a crypto wallet (like Backpack or Phantom) to connect directly to the DEX and approve transactions.
 
 5. **Transparency and Security** - Because trades are executed on the blockchain and controled by smart contracts, everything is transparent and verifiable. You can see the trade history, liquidity pool balances, and smart contract codes. Plus, since there is no central point of failure, it's often more secure from hacks targeting centralised entities. 
+
+**Common examples of DEXs**
+- Uniswap - A popular Ethereum-based DEX that uses the AMM model with liquidity pools.
+- SushiSwap - A fork of Uniswap with additional features.
+- PancakeSwap - A DEX built on the Binance Smart Chain with similar functionality to Uniswap.
