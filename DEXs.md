@@ -76,3 +76,7 @@ so, all these terms play a role in understanding how a CEX works. Here's a quick
 - Uniswap - A popular Ethereum-based DEX that uses the AMM model with liquidity pools.
 - SushiSwap - A fork of Uniswap with additional features.
 - PancakeSwap - A DEX built on the Binance Smart Chain with similar functionality to Uniswap.
+
+#### How Pricing Works in DEXs
+In DEXs, there is no centralised orderbook to match buyers and sellers. Instead, algorithms determine the price of assests based on liquidity pools. One of the most common algorithms used is the Constant Product Market Maker (CPMM) model, which is based on a simple formula.
+
