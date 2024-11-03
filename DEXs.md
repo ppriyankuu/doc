@@ -93,3 +93,4 @@ This formula essentially says that the product of the two token quantities (x an
 - The larger the trade relative to the size of the pool, the more the price will change during the trade. This change is called slippage.
 - If the pool is large (has a lot of liquidity), the price impact of any single trade is similar. Conversely, if the pool is small, even a modest trade can cause a significant change in price.
 
+In a DEX using an AMM model, prices are determined by an algorithm based on the constant product formula (x * y = k). This algorithm ensures that the product of the token quantities in the pool remains constant, and it adjusts prices dynamically based on the balance of tokens in the pool. The more you trade against a pool, the more you affect the price of the tokens within it, which is why larger pools privide better price stability. 
