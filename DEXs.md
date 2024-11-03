@@ -80,3 +80,8 @@ so, all these terms play a role in understanding how a CEX works. Here's a quick
 #### How Pricing Works in DEXs
 In DEXs, there is no centralised orderbook to match buyers and sellers. Instead, algorithms determine the price of assests based on liquidity pools. One of the most common algorithms used is the Constant Product Market Maker (CPMM) model, which is based on a simple formula.
 
+`X * Y = K`
+
+- *x* and *y* represent the quatities of two different tokens in a liquidity pool (e.g. ETH and USDT).
+- *k* is a constant product, meaning it always stays the same.
+This formula essentially says that the product of the two token quantities (x and y) must remain constant. When someone makes a trade, the balance of tokens in the pool changes, which in turn, changes the price.
