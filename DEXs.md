@@ -94,3 +94,26 @@ This formula essentially says that the product of the two token quantities (x an
 - If the pool is large (has a lot of liquidity), the price impact of any single trade is similar. Conversely, if the pool is small, even a modest trade can cause a significant change in price.
 
 In a DEX using an AMM model, prices are determined by an algorithm based on the constant product formula (x * y = k). This algorithm ensures that the product of the token quantities in the pool remains constant, and it adjusts prices dynamically based on the balance of tokens in the pool. The more you trade against a pool, the more you affect the price of the tokens within it, which is why larger pools privide better price stability. 
+
+## DEX Jargons
+1. **Market**
+In the context of a DEX, markets are specific pairs of cryptocurrencies that you can trade with each other. Each market is a trading pair, showing which two assets you can swap.
+
+2. **Swap**
+A swap is the action of exchanging one cryptocurrency for another on a DEX. It is essentially a trade but done in a decentralized way without a middleman. The DEX uses liquidity pools and an automated market maker (AMM) algorithm to calculate the price and complete the trade.
+
+3. **Quote**
+    A quote is the estimated amount of the token you'll receive when you perform a swap. It's like a price estimate given by the DEX before you confirm your trade. This quote takes into account the current market price, the liquidity pool balance and any fees involved.
+
+4. **Slippage**
+Slippage is the difference between the price you expect to pay (or receive) when you initiate a swap and the actual price you end up paying (or receiving) when the swap is completed. slippage happens because the price can change during the time it takes for the transaction to be processed, especially if the market is volatile or if the trade size is large compared to the liquidity in the pool.
+
+5. **Slippage Tolerance**
+Slippage tolerance is a setting you can adjust when making a swap. It’s the maximum amount of slippage you're willing to accept for the trade to go through. If the price moves beyond this tolerance during the swap, the transaction will fail. This protects you from unexpected price changes.
+
+**Summary**
+1. Markets - Trading pairs on the DEX (e.g., ETH/USDT).
+2. Swap - Exchanging one cryptocurrency for another.
+3. Quote - The estimated amount you'll get when you make a swap.
+4. Slippage - The difference between the expected price of a trade and the actual price.
+5. Slippage Tolerance - The maximum price movement you're willing to accept for a swap. If exceeded, the trade won't go through.
