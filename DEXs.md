@@ -85,3 +85,11 @@ In DEXs, there is no centralised orderbook to match buyers and sellers. Instead,
 - *x* and *y* represent the quatities of two different tokens in a liquidity pool (e.g. ETH and USDT).
 - *k* is a constant product, meaning it always stays the same.
 This formula essentially says that the product of the two token quantities (x and y) must remain constant. When someone makes a trade, the balance of tokens in the pool changes, which in turn, changes the price.
+
+*How the Algorithm Determines Price*
+- The price of one token in terms of another is distermined by ratio of the two token quantities in the pool. 
+
+#### Slippage and Price Impact
+- The larger the trade relative to the size of the pool, the more the price will change during the trade. This change is called slippage.
+- If the pool is large (has a lot of liquidity), the price impact of any single trade is similar. Conversely, if the pool is small, even a modest trade can cause a significant change in price.
+
