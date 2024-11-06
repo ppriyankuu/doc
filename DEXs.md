@@ -117,3 +117,13 @@ Slippage tolerance is a setting you can adjust when making a swap. It’s the ma
 3. Quote - The estimated amount you'll get when you make a swap.
 4. Slippage - The difference between the expected price of a trade and the actual price.
 5. Slippage Tolerance - The maximum price movement you're willing to accept for a swap. If exceeded, the trade won't go through.
+
+### DEX vs DEX Aggregator
+Both DEXs and DEX Aggregators facilitate cryptocurrency trading in a decentralized manner, but they have different functions.
+
+[image02](./images/dex-vs-dexAggregator.webp)
+
+- DEX - A platform where you can directly trade cryptocurrencies using the liquidity available on that specific exchange.
+- DEX Aggregator - A tool that scans multiple DEXs to find the best prices and liquidity for your trade, automatically optimizing the process to minimize costs and slippage.
+
+# Summary
