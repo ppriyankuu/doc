@@ -23,5 +23,6 @@ Whatever I feel like documenting/noting down.
 - [Ownership and Authorities](ownership-and-authorities.md) <br />
 - [Token program, Mint Account, and PDAs](PDAs.md) <br />
 - [Decentralised Exchanges](DEXs.md) <br />
+- [Ethereum](ETH.md) <br />
 
 Author - [@Priyanku Gogoi](https://github.com/ppriyankuu/)
