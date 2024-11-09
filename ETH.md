@@ -56,3 +56,6 @@ In Ethereum, Contract Accounts are special accounts that are governed by code (s
 Think of a Contract Account as a "robot" that operates according to specific set of intructions (its code) and can only take actions when someone interacts with it. Once set up, it follows its code without any need for human intervention, making it a powerful tool for automating transactions and other tasks on Ethereum.
 
 This immutability and automation enable Contract Accounts to power decentralised applications (dApps) on Ethereum, where they execute tasks without needing human control, making transactions and interactions transparent and predictable.
+
+### World State
+![image03](./images/world-state-overall-ETH.webp)
