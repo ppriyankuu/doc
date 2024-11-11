@@ -82,3 +82,28 @@ Think of a nonce like a unique ticket at a concert. Here's how it works -
 - Nonce for Contract Account: Think of it like naming games. Each game has a unique name so that everyone knows which one is being referred to.
 
 In both cases, the nonce helps keep everything organized and ensures that no mistakes happen, just like how unique ticket numbers and game names help manage a concert smoothly!
+
+##### Storage Hash
+1. Storage: The Smart Contract's Filing Cabinet
+- What is Storage?
+    - Think of storage as a filing cabinet where a smart contract keeps important information.
+    - Each smart contract has its own filing cabinet, separate from others.
+- Key-Value Store:
+    - Inside this cabinet, the information is organized in a key-value store.
+    - Key: This is like a label on a drawer that tells you what’s inside. For example, a drawer labeled “User Balances” might contain how much money each user has.
+    - Value: This is the actual content inside the drawer. For instance, the value under “User Balances” could show:
+        - Alice: 10 Ether
+        - Bob: 5 Ether
+
+2. The Storage Hash: The summary page of the Cabinet
+- What is a Storage Hash?
+    - Now, imagine instead of going through each drawer every time, you create a summary page that tells you about all the drawers and their contents.
+    - This summary page represents the storage hash.
+- Root Hash:
+    - The storage hash is a compact version of everything in the filing cabinet, like a single page that summarizes all the key-value pairs.
+    - It helps you quickly know what data is in your filing cabinet without opening every drawer.
+
+*Code Hash*
+- Smart contracts in Ethereum are written in high-level languages (like Solidity), but thye are compiled into EVM bytecode for execution on the Ethereum Virtual Machine (EVM).
+- The code hash is cryptographic has (usually SHA3) of the contract's bytecode. It uniquely identifies the code of the contract.
+- Once a smart contract is deployed on Ethereum, its code hash is permanently fixed unless the contract is destroyed.
