@@ -59,3 +59,26 @@ This immutability and automation enable Contract Accounts to power decentralised
 
 ### World State
 ![image03](./images/world-state-overall-ETH.webp)
+
+**Nonce**
+Think of a nonce like a unique ticket at a concert. Here's how it works -
+**Externally Owned Account (EOA)**
+- What is it?
+    Imagine you are buying tickets to a concert. Each time you buy a ticket, you get a new number on it, like 1, 2, 3, and so on.
+- Purpose:
+    This number helps the concert organizers keep track of how many tickets you’ve bought. It ensures that no one can use the same ticket twice. If someone tried to sneak in with ticket number 1 again, they’d be stopped because that ticket has already been used.
+- Real-life Example:
+    Let’s say you are at a ticket booth. You buy your first ticket; it has the number 1. Next, you buy another ticket; it has the number 2. Your next ticket will be number 3. This way, each ticket (or transaction) is unique, and the organizers can see you are not trying to enter twice with the same ticket.
+
+**Contract Account (Smart Contract)**
+- What is it?
+    Now, think about someone who creates a new game or event at the concert. Each time they create a new game, they also need to give it a unique name or code, like “Game1”, “Game2”, and so on.
+- Purpose:
+    This unique name ensures that every game is different and can be easily identified by participants. It prevents confusion about which game is which.
+- Real-life Example:
+    If a game organizer creates a game, the first one might be called “Game1”. If they create another game later, it will be “Game2”. Each new game has a unique name, so players know exactly which game to join.
+
+- Nonce for EOA: Think of it like your ticket number. Each time you do something (like buy a ticket), you get a new number to keep things organized and prevent reuse.
+- Nonce for Contract Account: Think of it like naming games. Each game has a unique name so that everyone knows which one is being referred to.
+
+In both cases, the nonce helps keep everything organized and ensures that no mistakes happen, just like how unique ticket numbers and game names help manage a concert smoothly!
