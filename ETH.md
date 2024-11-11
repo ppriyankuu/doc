@@ -107,3 +107,15 @@ In both cases, the nonce helps keep everything organized and ensures that no mis
 - Smart contracts in Ethereum are written in high-level languages (like Solidity), but thye are compiled into EVM bytecode for execution on the Ethereum Virtual Machine (EVM).
 - The code hash is cryptographic has (usually SHA3) of the contract's bytecode. It uniquely identifies the code of the contract.
 - Once a smart contract is deployed on Ethereum, its code hash is permanently fixed unless the contract is destroyed.
+
+### Ethereum Virtual Machine (EVM)
+The **Ethereum Virtual Machine** is like the JVM, but has a different focus. Both are virtual machines that let programs run on different systems without needing changes.
+
+1. Purpose:
+    The JVM runs Java programs, while the EVM runs smart contracts on the Ethereum blockchain. Smart contracts are like self-executing agreements that run automatically when certain conditions are met.
+2. Design:
+    The EVM is built specifically for the Ethereum network and handles tasks like managing cryptocurrency transactions and executing smart contracts. The JVM, on the other hand, is designed for general-purpose applications.
+3. Execution:
+    The JVM executes Java bytecode, while the EVM executes bytecode created from smart contracts written in languages like Solidity.
+
+In short, the EVM and the JVM are both virtual machines that allow code to run on different platforms, but the EVM is specifically for Ethereum and smart contracts, while the JVM is for Java programs.
