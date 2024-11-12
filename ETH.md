@@ -129,4 +129,9 @@ In short, the EVM and the JVM are both virtual machines that allow code to run o
 
 **OPCODE**
 Take a look - [evm.codes](https://www.evm.codes/)
-Each part of the 
+Each part of the bytecode represents an opcode, which stands for "operation code". Opcodes are the individual instructions that tell the EVM what to do. Examples of opcode include basic operations like -
+- Arithmatic (e.g., addition or subtraction)
+- Data manipulation (e.g., storing and retrieving data)
+- Control flow (e.g., jump to different parts of the code based on conditions)
+Execution in the EVM: When a smart contract is deployed or executed, the EVM reads the bytecode one opcode at a time, following each instruction to carry out the actions coded in the smart contract.
+In simple terms, opcodes are like commands in a recipe for the EVM, telling it exactly what steps to take, one at a time, to carry out the smart contract's functions.
