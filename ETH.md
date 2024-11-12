@@ -119,3 +119,14 @@ The **Ethereum Virtual Machine** is like the JVM, but has a different focus. Bot
     The JVM executes Java bytecode, while the EVM executes bytecode created from smart contracts written in languages like Solidity.
 
 In short, the EVM and the JVM are both virtual machines that allow code to run on different platforms, but the EVM is specifically for Ethereum and smart contracts, while the JVM is for Java programs.
+
+#### Solidity, ABIs, Bytecode, and Opcode
+
+1. Solidity Code - Solidity is a high-level programming language, similar to JavaScript or Python, that developers use to write smart contracts for Ethereum. This code specifies the logic and rules of the smart contract, like what it can do, how funds are managed, and under what conditions actions can be taken.
+2. Bytecode - Once the Solidity code is written, it gets compiled into a low-level format called bytecode. The compiler converts the human-readable Solidity code into this bytecode, which is a set of instructions that the EVM can understand and execute.
+3. EVM (Ethereum Virtual Machine) - The bytecode is then deployed to the Ethereum Virtual Machine (EVM). The EVM is like a global decentralized computer that runs on many nodes (computers) around the world, all part of the Ethereum network. The EVM executes the bytecode, carrying out the contract's instructions.
+4. Cross-Platform Compatibility - The EVM is designed to be platform-independent, meaning it can operate on various operating systems like Windows, Ubuntu, and Linux. This compatibility allows Ethereum nodes to run on different devices and OS environments while still following the same rules and running the same bytecode, ensuring that the network remains consistent and decentralized.
+
+**OPCODE**
+Take a look - [evm.codes](https://www.evm.codes/)
+Each part of the 
