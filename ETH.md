@@ -151,3 +151,7 @@ In Ethereum, an ABI (Application Binary Interface) is like a "traditional guide"
     - Let’s say there’s a smart contract that has a function to check a user’s balance. The ABI would specify that to call the “checkBalance” function, you need to provide the user’s address as input, and it will return a number (the balance) as output.
     - An application, such as a wallet, would use the ABI to correctly format the call to “checkBalance” and understand the response.
 
+#### Architecture of EVM (Memory, Storage and contract)
+![image04](./images/evm-architecture.webp)
+
+In summary, we've learned about the internal workings of Ethereum, including the concepts of blocks, world state, and Ethereum as a state machine. We discussed the differences between Externally Owned Accounts (EOAs) and Contract Accounts, highlighting how EOAs are controlled by users while Contract Accounts execute smart contracts. Additionally, we explored important jargon such as the distinction between account types and their roles in the Ethereum ecosystem. Overall, this lecture provided us with a comprehensive understanding of Ethereum's architecture and functionality.
