@@ -135,3 +135,19 @@ Each part of the bytecode represents an opcode, which stands for "operation code
 - Control flow (e.g., jump to different parts of the code based on conditions)
 Execution in the EVM: When a smart contract is deployed or executed, the EVM reads the bytecode one opcode at a time, following each instruction to carry out the actions coded in the smart contract.
 In simple terms, opcodes are like commands in a recipe for the EVM, telling it exactly what steps to take, one at a time, to carry out the smart contract's functions.
+
+**ABIs**
+In Ethereum, an ABI (Application Binary Interface) is like a "traditional guide" that allows applications and users to interact with smart contracts. 
+- Purpose of ABI - When a smart contract is deployed on the Ethereum blockchain, it operates using bytecode that the Ethereum Virtual Machine can understand. However, people and external applications need a way to communicate with this contract - for example, to call its functions or read its data. the ABI defines how this communication happens.
+- Defining Contract Functions - The ABI includes details about the contract's functions, specifying -
+    - The names of the functions,
+    - The types of inputs each function requires,
+    - The types of outputs (if any) it returns.
+    This makes it clear for any application or user interface how to call specific functions on the contract.
+- Encoding and Decoding data -
+    - When an application sends data to the smart contract (like calling a function), the ABI tells it how to encode this data into the proper format.
+    - When the contract sends data back (like returning a result), the ABI tells the application how to decode this data.
+- Practical Example -
+    - Let’s say there’s a smart contract that has a function to check a user’s balance. The ABI would specify that to call the “checkBalance” function, you need to provide the user’s address as input, and it will return a number (the balance) as output.
+    - An application, such as a wallet, would use the ABI to correctly format the call to “checkBalance” and understand the response.
+
