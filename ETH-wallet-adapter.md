@@ -23,3 +23,8 @@ Wagmi is a library that simplifies this for developers who are building blockcha
 1. Connecting Wallets Easily - Just like an online store lets you "sign in with Google" or "sign in with Facebook," Wagmi lets developers set up options for users to connect their crypto wallets easily.
 2. Automatic Reconnection - Imagine if you get disconnected from a streaming service while watching a show, and it remembers where you left off without you having to do anything. Wagmi does something similar with wallets—it reconnects the wallet automatically if there’s a disconnection.
 3. Managing User Information - Wagmi also keeps track of important things like which wallet is connected, the user’s balance, and any changes in the network (like switching from Ethereum to another blockchain). This is like an app that remembers your shopping cart and preferred payment method.
+
+### TanStack, Viem, and Wagmi
+- TanStack - A collection of powerful libraries for React, like React Query for data fetching and caching, React Table for tables, and React Router for navigation. It helps manage and display data efficiently in web applications.
+- Viem - A TypeScript library designed for blockchain developers to interact with Ethereum and other blockchains. It provides tools to make Ethereum calls, handle wallets, and manage blockchain data, with a focus on speed and accuracy.
+- Wagmi - A React Hooks library for building blockchain applications. It simplifies wallet connections, manages user sessions, and handles Ethereum interactions, making it easier for developers to create smooth, user-friendly crypto experiences.
