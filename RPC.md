@@ -18,3 +18,12 @@ RPC is a client-server model where the client makes a request to exectue specifi
 2. **Abstraction of Communication Details**: RPC abstracts away the complexities of network communication, such as socket programming, serialization, and deserialization of data. Developers can focus on the application logic rather than low-level communication details.
 3. **Distributed Computing**: RPC enables the distribution of computational tasks across multiple systems, allowing for better resource utilization, load balancing, and scalability.
 4. **Code Modularity**: RPC promotes code modularity by separating the client and server components. This separation of converns makes the codebase more maintainable and easier to evolve.
+
+#### Drawbacks of HTTP for Backend Communication
+While HTTP is a widely used protocol for communication between web applications and servers, it has some limitation when it comes to backend-to-backend communication:
+1. **Lack of Type Safety**: HTTP requests and responses are typically transmitted as plain text or JSON, which lacks type safety. This can lead to runtime errors and make it harder to ensure data integrity.
+2. **Overhead**: HTTP has additional overhead due to headers, parsing, and serialization/deserialization of data, which can impact performance, especially in high-throughput scenarios.
+3. **Language Dependency**: HTTP libraries and their usage can vary across programming languages, making it harder to maintain consistent communication patterns across different backend systems.
+4. **Limited Funcionality**: HTTP is primarily designed for request-response communication, which may not be suitable for more complex scenarios like bi-directional streaming or long-lived connections.
+
+RPC addresses these limitations by providing a more efficient, language-agnostic, and type-safe communication mechanism for backend systems.
