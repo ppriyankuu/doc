@@ -27,3 +27,37 @@ While HTTP is a widely used protocol for communication between web applications 
 4. **Limited Funcionality**: HTTP is primarily designed for request-response communication, which may not be suitable for more complex scenarios like bi-directional streaming or long-lived connections.
 
 RPC addresses these limitations by providing a more efficient, language-agnostic, and type-safe communication mechanism for backend systems.
+
+To illustrate RPC in actions, let's consider making a HTTP request:
+```javascript
+const https = require('https');
+
+const options = {
+  hostname: 'sum-server.100xdevs.com',
+  port: 443,
+  path: '/todos',
+  method: 'GET'
+};
+
+const req = https.request(options, (res) => {
+  console.log(`Status Code: ${res.statusCode}`);
+
+  res.on('data', (chunk) => {
+    console.log(`Body: ${chunk}`);
+  });
+
+  res.on('end', () => {
+    console.log('No more data in response.');
+  });
+});
+
+req.on('error', (e) => {
+  console.error(`problem with request: ${e.message}`);
+});
+
+req.end();
+```
+
+This code sends an HTTP GET request to the specified URL and logs the response status code and body to the console. While this approach works, it requires handling low-level details like creating the request options, managing the response data, and handling error explicitly.
+
+With RPC, the communication between the client and server would be abstracted away, allowing developers to focus on the application logic rather than underlying communication details.
