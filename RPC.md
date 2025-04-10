@@ -12,6 +12,7 @@ JSON-RPC Spec - [click me!!!](https://www.jsonrpc.org/specification)
 
 ## Understanding RPC
 RPC is a client-server model where the client makes a request to exectue specific procedure or function on the server. The server processes the request, performs the requested operation, and sends the result back to the client. This process is transparent to the client, making it appear as if the procedure is being executed locally.
+![image01](./images/RPCs.webp)
 
 #### Why use RPC?
 1. **Language and Platform independence**: RPC allows applications written in different programming languages and running on different platforms to communicate seamlessly. This promotes code reusability and interoperability across diverse systems.
@@ -248,4 +249,74 @@ The size of the `person.bin` file (serialized with Protocol Buffers) is typicall
 ## Some common RPC Protocols
 There are several RPC protocols availabe, each with its own strengths and use cases. Here are some common RPC protocols:
 #### JSON-RPC
-JSON-RPC is a lightweight remote procedure
+JSON-RPC is a lightweight remote procedure call protocol taht uses JSON as the data format for requests and responses. It is widely used in various applications, including blockchain platforms like Ethereum and Solana.
+![image02](./images/json-rpc-blockchain.webp)
+
+#### Creating a JSON-RPC Server
+Here's an example of creating a simple JSON-RPC server using Express.js in Node.js:
+```javascript
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const app = express();
+const port = 3000;
+
+// Parse JSON bodies
+app.use(bodyParser.json());
+
+// Define a sample method
+function add(a, b) {
+    return a + b;
+}
+
+// Handle JSON-RPC requests
+app.post('/rpc', (req, res) => {
+    const { jsonrpc, method, params, id } = req.body;
+
+    if (jsonrpc !== '2.0' || !method || !Array.isArray(params)) {
+        res.status(400).json({ jsonrpc: '2.0', error: { code: -32600, message: 'Invalid Request' }, id });
+        return;
+    }
+
+    // Execute the method
+    let result;
+    switch (method) {
+        case 'add':
+            result = add(params[0], params[1]);
+            break;
+        default:
+            res.status(404).json({ jsonrpc: '2.0', error: { code: -32601, message: 'Method not found' }, id });
+            return;
+    }
+
+    // Send back the response
+    res.json({ jsonrpc: '2.0', result, id });
+});
+
+// Start the server
+app.listen(port, () => {
+    console.log(`JSON-RPC server listening at <http://localhost>:${port}`);
+});
+```
+In this example, we define an `add` function and handle JSON-RPC requests at the `/rpc` endpoint. The server expects a JSON-RPC request body with the `jsonrpc` version. `method` name, `params` array, and an `id`. If the request is valid, the server executes the corresponding method and sends back the result.
+
+To test the server, you can send a JSON-RPC request like this:
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "add",
+  "params": [
+    1, 2
+  ]
+}
+```
+The server should respond with the result:
+```json
+{
+  "jsonrpc": "2.0",
+  "result": 3,
+  "id": 1
+}
+```
+JSON-RPC is a simple and lightweight protocol, makint it suitable for various use cases, including blockchain interactions and general-purpose RPC communication.
