@@ -234,3 +234,18 @@ protobuf.load('a.proto')
   .catch(console.error);
 ```
 In this example, we load the `a.proto` schema, obtain the `Person` message type, create a `Person` instance, and serialise it to a binary buffer using `Person.encode(person).finish()`. We can then write the buffer to a file (`person.bin`). To deserialise the data, we read the buffer from the file and use `Perons.decode(data)` to obtain the deserialized `Person` object.
+
+#### Size Comparison
+One of the advantages of Protocol Buffers is their compact binary serialization format, which results in smaller data sizes compared to text-based formats like JSON. Let's compare the size of the serialized `Person` data with a JSON representation.
+```json
+{
+  "name": "Alice",
+  "age": 32
+}
+```
+The size of the `person.bin` file (serialized with Protocol Buffers) is typically smaller that the JSON representation.
+
+## Some common RPC Protocols
+There are several RPC protocols availabe, each with its own strengths and use cases. Here are some common RPC protocols:
+#### JSON-RPC
+JSON-RPC is a lightweight remote procedure
