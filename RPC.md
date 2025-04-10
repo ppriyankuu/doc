@@ -325,3 +325,10 @@ JSON-RPC is a simple and lightweight protocol, makint it suitable for various us
 gRPC (Google Remote Procedure Call) is an open-source RPC framework developed by Google. It uses Protocol Buffers for efficient data serialization and provides features like streaming, load balancing, and authentication.
 
 gRPC is widely used in microservices architectures and high-performance distributed systems due to its efficiency and language support. It generates client and server code in various programming languages based on the defined service definitions in Protocol Buffers.
+
+#### tRPC
+tRPC (TypeScript RPC) is a framework for building end-to-end type-safe APIs in TypeScript. It is designed for full-stack JavaScript/TypeScript applications and provides type safety on both the frontend and backend.
+
+tRPC allows you to define you API routes and data types on the server-side, and it automatically generates TypeScript types for the client-side. This ensures that your client code is always in sync with the server API, reducing the risk of runtime errors and improving developer productivity.
+
+tRPC is particularly useful for building full-stack applications with a shared codebase between the forntend and backend, as it eliminates the need for separate API documentation and client-side type definitions.
