@@ -320,3 +320,8 @@ The server should respond with the result:
 }
 ```
 JSON-RPC is a simple and lightweight protocol, makint it suitable for various use cases, including blockchain interactions and general-purpose RPC communication.
+
+#### gRPC
+gRPC (Google Remote Procedure Call) is an open-source RPC framework developed by Google. It uses Protocol Buffers for efficient data serialization and provides features like streaming, load balancing, and authentication.
+
+gRPC is widely used in microservices architectures and high-performance distributed systems due to its efficiency and language support. It generates client and server code in various programming languages based on the defined service definitions in Protocol Buffers.
