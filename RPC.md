@@ -332,3 +332,35 @@ tRPC (TypeScript RPC) is a framework for building end-to-end type-safe APIs in T
 tRPC allows you to define you API routes and data types on the server-side, and it automatically generates TypeScript types for the client-side. This ensures that your client code is always in sync with the server API, reducing the risk of runtime errors and improving developer productivity.
 
 tRPC is particularly useful for building full-stack applications with a shared codebase between the forntend and backend, as it eliminates the need for separate API documentation and client-side type definitions.
+
+## Types of Protocol Buffers
+Protocol Buffers provide a rich set of data types that you can use to define your message structures. These types include scalar types, message types, enum types, and maps.
+
+#### Scalar Types
+Scalar types are the basic data types in Protocol Buffers. They include:
+- `int32`, `int64`, `uint32`, `uint64`: Signed and unsigned integers of varous sizes.
+- `float`, `double`: Floating-point numbers.
+- `bool`: Boolean values (`true` and `false`).
+- `string`: Unicode text strings.
+- `bytes`: Arbitary binary data.
+
+Here's an example of using scalar types in a `.proto` file:
+```proto
+syntax = "proto3";
+
+// Define a message type representing an address.
+message Address {
+  string street = 1;
+  string city = 2;
+  string state = 3;
+  string zip = 4;
+}
+
+// Define a message type representing a person.
+message Person {
+  string name = 1;
+  int32 age = 2;
+  Address address = 3;
+}
+```
+In this example, the `Address` message type contains four `string` fields, and the `Person` message type contains a `string` field for the name, an `int32` field for the age, and an `Address` message field.
