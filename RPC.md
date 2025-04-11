@@ -375,3 +375,14 @@ message Person {
 }
 ```
 In this example, the `Person` message type has a `name` field of type `string`, an `age` field of type `int32`, and a repeated field `phone_numbers` of type `string` to store multiple phone numbers.
+
+#### Enum Types
+Enum types define a set of named constant values. You define enum types using the `enum` keyword followed by the name of the enum type and its values.
+```proto
+enum PhoneType {
+  MOBILE = 0;
+  HOME = 1;
+  WORK = 2;
+}
+```
+In this example, the `PhoneType` enum defines three values: `MOBILE`, `HOME`, and `WORK`.
