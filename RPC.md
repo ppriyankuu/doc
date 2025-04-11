@@ -364,3 +364,14 @@ message Person {
 }
 ```
 In this example, the `Address` message type contains four `string` fields, and the `Person` message type contains a `string` field for the name, an `int32` field for the age, and an `Address` message field.
+
+#### Message Types
+Message types allow you to define structured data with nested fields. They can contain scalar types, other message types, or repeated field (arrays). You define message types using the `message` keyword followed by the name of the message type and its fields.
+```proto
+message Person {
+  string name = 1;
+  int32 age = 2;
+  repeated string phone_numbers = 3;
+}
+```
+In this example, the `Person` message type has a `name` field of type `string`, an `age` field of type `int32`, and a repeated field `phone_numbers` of type `string` to store multiple phone numbers.
