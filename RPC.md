@@ -386,3 +386,12 @@ enum PhoneType {
 }
 ```
 In this example, the `PhoneType` enum defines three values: `MOBILE`, `HOME`, and `WORK`.
+
+#### Maps
+Protocol Buffers also support map types, which are associative collections that map keys to values. You define map types using `map` keyword followed by the key and value types.
+```proto
+message MapMessage {
+  map<string, int32> id_to_age = 1;
+}
+```
+In this example, the `MapMessage` message type contains a map field `id_to_age` that maps string keys (e.g., user IDs) to `int32` values (e.g., ages)
