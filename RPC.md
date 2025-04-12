@@ -435,3 +435,26 @@ In this example, the `Person` message type contains a `name` field of type `stri
 ```
 You can use these types in you ".proto" files to define the structure of your data, and then use the generated code to create, serialize, and deserialize instances of these message types in your application.
 ```
+
+## Implementing Services
+In Protocol Buffers, the `service` section defines the interface for the remote procedure calls (RPCs) that a server can handle. However, Protocol Buffers itself does not provide an implementation for these services. Instead, it relies on other RPC frameworks or custom implementations to handle the actual communication and execution of the defined services. 
+
+Here's an example of a `.proto` file that defines a service:
+```proto
+syntax = "proto3";
+
+// Define a message type representing a person.
+message Person {
+  string name = 1;
+  int32 age = 2;
+}
+
+service AddressBookService {
+  // Add a person to the address book.
+  rpc AddPerson(Person) returns (Person);
+
+  // Get a person from their name
+  rpc GetPersonByName(string) returns (Person);
+}
+```
+In this example, the `AddressBookService` defines two RPCs: `AddPerson` and `GetPersonByName`. The `AddPerson` RPC takes a `Person` message as input and returns a `Person` message as output, while the `GetPersonByName` RPC takes a `string` (representing the person's name) as input and returns a `Person` message as output.
