@@ -395,3 +395,43 @@ message MapMessage {
 }
 ```
 In this example, the `MapMessage` message type contains a map field `id_to_age` that maps string keys (e.g., user IDs) to `int32` values (e.g., ages)
+
+#### Combining Types
+You can combine these different types to create more complex message structures. Here's an example that combines scalar types, enum types, and repeated fields:
+```proto
+syntax = "proto3";
+
+// Define an enum representing the type of phone numbers.
+enum PhoneType {
+  MOBILE = 0;
+  HOME = 1;
+  WORK = 2;
+}
+
+// Define a message type representing a phone number.
+message PhoneNumber {
+  string number = 1;
+  PhoneType type = 2;
+}
+
+// Define a message type representing an address.
+message Address {
+  string street = 1;
+  string city = 2;
+  string state = 3;
+  string zip = 4;
+}
+
+// Define a message type representing a person.
+message Person {
+  string name = 1;
+  int32 age = 2;
+  repeated PhoneNumber phone_numbers = 3;
+  Address address = 4;
+}
+```
+In this example, the `Person` message type contains a `name` field of type `string`, an `age` field of type `int32`, a repeated field `phone_numbers` of type `PhoneNumber` (which itself contains a `string` and a `PhoneType` enum), and an `Address` message field.
+
+```
+You can use these types in you ".proto" files to define the structure of your data, and then use the generated code to create, serialize, and deserialize instances of these message types in your application.
+```
