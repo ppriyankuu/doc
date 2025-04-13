@@ -458,3 +458,94 @@ service AddressBookService {
 }
 ```
 In this example, the `AddressBookService` defines two RPCs: `AddPerson` and `GetPersonByName`. The `AddPerson` RPC takes a `Person` message as input and returns a `Person` message as output, while the `GetPersonByName` RPC takes a `string` (representing the person's name) as input and returns a `Person` message as output.
+
+## Implementing Services using gRPC
+gRPC is a popular framework for implementing services defined in Protocol Buffers. It provides a high-performance, efficient, and language-agnostic way to build distributed systems and microservices. Here's an example of how to implement services using gRPC in Node.js with TypeScript.
+
+#### Setup
+1. Initialize a new Node.js project:
+```bash
+npm init -y
+```
+2. Initialize TypeScript:
+```bash
+npx tsx --init
+```
+3. Install the required dependencies
+```bash
+npm i @grpc/grpc-js @grpc/proto-loader
+```
+
+#### Define the Protocol Buffers file
+Create a file named `a.proto` and define the service and message types:
+```proto
+syntax = "proto3";
+
+// Define a message type representing a person.
+message Person {
+  string name = 1;
+  int32 age = 2;
+}
+
+service AddressBookService {
+  // Add a person to the address book.
+  rpc AddPerson(Person) returns (Person);
+
+  // Get a person from their name
+  rpc GetPersonByName(GetPersonByNameRequest) returns (Person);
+}
+
+message GetPersonByNameRequest {
+  string name = 1;
+}
+```
+
+#### Implementing the Server
+Create a file named `index.ts` and implement the server
+```typescript
+import path from 'path';
+import * as grpc from '@grpc/grpc-js';
+import { GrpcObject, ServiceClientConstructor } from "@grpc/grpc-js"
+import * as protoLoader from '@grpc/proto-loader';
+
+const packageDefinition = protoLoader.loadSync(path.join(__dirname, './a.proto'));
+
+const personProto = grpc.loadPackageDefinition(packageDefinition);
+
+const PERSONS = [
+    {
+        name: "harkirat",
+        age: 45
+    },
+    {
+      name: "raman",
+      age: 45
+    },
+];
+
+//@ts-ignore
+function addPerson(call, callback) {
+  console.log(call)
+    let person = {
+      name: call.request.name,
+      age: call.request.age
+    }
+    PERSONS.push(person);
+    callback(null, person)
+}
+
+const server = new grpc.Server();
+
+server.addService((personProto.AddressBookService as ServiceClientConstructor).service, { addPerson: addPerson });
+server.bindAsync('0.0.0.0:50051', grpc.ServerCredentials.createInsecure(), () => {
+    server.start();
+});
+```
+
+Here's what's happening in the code:
+1. We load the Protocol Buffers schema using `protoLoader.loadSync` and `grpc.loadPackageDefinition`.
+2. We define a simple in-memory array `PERSONS` to store person objects.
+3. We implement the `addPerson` function, which handles the `AddPerson` RPC. It takes the request data from `call.request`, creates a new person object, adds it to the `PERSONS` array, and sends the new person object back as the response using the `callback` function.
+4. We create a new gRPC server instance using `new grpc.Server()`.
+5. We add the `AddressBookService` to the server using `server.addService`, providing the implementation for the `addPerson` method.
+6. We bind the server to listen on `0.0.0.0:50051` using `server.bindAsync` and start the server using `server.start()`.
