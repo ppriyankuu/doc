@@ -571,3 +571,8 @@ You can test the server using a gRPC client like Postman or BloomRPC. Here's how
 6. Send the request.
 You should see the response containing the `Person` object you added.
 ![image04](./images/testing-the-server.webp)
+
+#### Adding Types
+To improve type safety and developer experience when working the gRPC in Node.js, we can generate TypeScript types from our Protocol Buffers definition file (`.proto`). This allows us to leverage the benefits of static typing and autocompletion in our code.
+
+#####
