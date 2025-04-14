@@ -575,4 +575,14 @@ You should see the response containing the `Person` object you added.
 #### Adding Types
 To improve type safety and developer experience when working the gRPC in Node.js, we can generate TypeScript types from our Protocol Buffers definition file (`.proto`). This allows us to leverage the benefits of static typing and autocompletion in our code.
 
-#####
+##### Generating Types
+The `@grpc/proto-loader` package provides a command-line tool called `proto-loader-gen-types` that can generate TypeScript types from a `.proto` file. Here's how you can use it.
+1. Install the `@grpc/proto-loader` package if you haven't already:
+```bash
+npm install @grpc/proto-loader
+```
+2. Run the `proto-loader-gen-types` command, providing the necessary options and the path to your `.proto` file:
+```bash
+./node_modules/@grpc/proto-loader/build/bin/proto-loader-gen-types.js --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=generated a.proto
+```
+This command generates TypeScript types for the messages, enums, and services defined in the `a.proto` file and saves them in `generated` directory.
