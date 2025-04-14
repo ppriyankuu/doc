@@ -575,7 +575,7 @@ You should see the response containing the `Person` object you added.
 #### Adding Types
 To improve type safety and developer experience when working the gRPC in Node.js, we can generate TypeScript types from our Protocol Buffers definition file (`.proto`). This allows us to leverage the benefits of static typing and autocompletion in our code.
 
-##### Generating Types
+#### Generating Types
 The `@grpc/proto-loader` package provides a command-line tool called `proto-loader-gen-types` that can generate TypeScript types from a `.proto` file. Here's how you can use it.
 1. Install the `@grpc/proto-loader` package if you haven't already:
 ```bash
@@ -586,3 +586,67 @@ npm install @grpc/proto-loader
 ./node_modules/@grpc/proto-loader/build/bin/proto-loader-gen-types.js --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=generated a.proto
 ```
 This command generates TypeScript types for the messages, enums, and services defined in the `a.proto` file and saves them in `generated` directory.
+
+#### Updating the Code
+After generating the types, you can update your code to use them:
+```typescript
+import path from 'path';
+import * as grpc from '@grpc/grpc-js';
+import { GrpcObject, ServiceClientConstructor } from "@grpc/grpc-js"
+import * as protoLoader from '@grpc/proto-loader';
+import { ProtoGrpcType } from './proto/a';
+import { AddressBookServiceHandlers } from './proto/AddressBookService';
+import { Status } from '@grpc/grpc-js/build/src/constants';
+
+const packageDefinition = protoLoader.loadSync(path.join(__dirname, './a.proto'));
+
+const personProto = (grpc.loadPackageDefinition(packageDefinition) as unknown) as ProtoGrpcType;
+
+const PERSONS = [
+    {
+        name: "harkirat",
+        age: 45
+    },
+    {
+      name: "raman",
+      age: 45
+    },
+];
+
+const handler: AddressBookServiceHandlers = {
+  AddPerson: (call, callback) => {
+    let person = {
+      name: call.request.name,
+      age: call.request.age
+    }
+    PERSONS.push(person);
+    callback(null, person)
+  },
+  GetPersonByName: (call, callback) => {
+    let person = PERSONS.find(x => x.name === call.request.name);
+    if (person) {
+      callback(null, person)
+    } else {
+      callback({
+        code: Status.NOT_FOUND,
+        details: "not found"
+      }, null);
+    }
+  }
+}
+
+const server = new grpc.Server();
+
+server.addService((personProto.AddressBookService).service, handler);
+server.bindAsync('0.0.0.0:50051', grpc.ServerCredentials.createInsecure(), () => {
+    server.start();
+});
+```
+In this updated code:
+1. We import the generated types `ProtoGrpcType` and `AddressBookServiceHandlers` from the `./proto/a` and `./proto/AddressBookService` modules, respectively.
+2. We cast the result of `grpc.loadPackageDefinition` to `ProtoGrpcType` to get access to the generated types.
+3. We define the `handler` object as an instance of `AddressBookServiceHandlers`, which ensures that the `AddPerson` and `GetPersonByName` methods have the correct signatures and types.
+
+By using this generated types, you get the benefits of type safety, autocompletion, and better tooling support in you gRPC implementation. This can help catch errors during development and improve the overall maintainability of your code.
+
+Note that the genrated types are based on the `.proto` file, so if you make changes to the file, you'll need to regenerate the types and update the code accordingly.
