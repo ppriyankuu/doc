@@ -549,3 +549,14 @@ Here's what's happening in the code:
 4. We create a new gRPC server instance using `new grpc.Server()`.
 5. We add the `AddressBookService` to the server using `server.addService`, providing the implementation for the `addPerson` method.
 6. We bind the server to listen on `0.0.0.0:50051` using `server.bindAsync` and start the server using `server.start()`.
+
+#### Run the Server
+1. Compile the TypeScript code:
+```bash
+tsc -b
+```
+2. Run the server:
+```bash
+node index.js
+```
+The server should now be running and listening on `0.0.0.0:50051`.
