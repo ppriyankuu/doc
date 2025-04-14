@@ -560,3 +560,14 @@ tsc -b
 node index.js
 ```
 The server should now be running and listening on `0.0.0.0:50051`.
+
+#### Test the Server
+You can test the server using a gRPC client like Postman or BloomRPC. Here's how to test it using Postman:
+1. Open Postman and create a new gRPC request.
+2. Import the `a.proto` file by going to `File` > `New` > `GRPC` and selecting the `a.proto` file.
+3. Set the URL to `grpc://locahost:50051`
+4. Select the `AddressBookService` service and the `AddPerson` method.
+5. Fill in the request data with a `Person` object, e.g., `{ "name": "Alice", "age": 30 }`.
+6. Send the request.
+You should see the response containing the `Person` object you added.
+![image04](./images/testing-the-server.webp)
